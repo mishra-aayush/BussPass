@@ -10,8 +10,8 @@
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="200dp"
         android:ems="10"
         android:text="@string/login"
         android:textSize="20dp" />
@@ -47,17 +47,39 @@
         android:id="@+id/loginG"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="300dp"
         android:ems="10"
         android:gravity="center"
         android:drawableStart="@drawable/ic_google_logo"
+        android:layout_below="@id/text"
         android:text="@string/login_with_google"
         android:background="@drawable/round_bg"
         android:layout_marginLeft="26dp"
         android:layout_marginRight="26dp"
         android:textSize="20dp" />
+    <Button
+        android:visibility="invisible"
+        android:id="@+id/logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:ems="10"
+        android:gravity="center"
+        android:text="@string/logout"
+        android:background="@drawable/round_bg"
+        android:layout_marginLeft="26dp"
+        android:layout_marginRight="26dp"
+        android:textSize="20dp" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:id="@+id/progress_circular"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/login"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content" />
 
 
 </RelativeLayout>

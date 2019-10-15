@@ -3,4 +3,5 @@
     <string name="buss_pass">BUSS PASS</string>
     <string name="login_with_google">LOGIN WITH GOOGLE</string>
     <string name="login">Login</string>
+    <string name="logout">LogOut</string>
 </resources>
