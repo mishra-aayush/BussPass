@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         text = findViewById(R.id.text);
         forgotPassword=findViewById(R.id.forgot_password);
         progressBar = findViewById(R.id.progress_circular);
+        progressBar.setVisibility(View.INVISIBLE);
         mAuth = FirebaseAuth.getInstance();
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
