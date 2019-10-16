@@ -30,13 +30,13 @@ public class ForgotPassword extends AppCompatActivity {
         resetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String useremail= cEmail.getText().toString().trim();
-                if(useremail.equals("")){
+                String userEmail= cEmail.getText().toString().trim();
+                if(userEmail.equals("")){
                     Toast.makeText(ForgotPassword.this,"Please Enter your registered Email",Toast.LENGTH_LONG).show();
 
                 }
                 else{
-                    fireBaseAuth.sendPasswordResetEmail(useremail).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    fireBaseAuth.sendPasswordResetEmail(userEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                                 if(task.isSuccessful()){

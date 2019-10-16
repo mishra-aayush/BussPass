@@ -13,4 +13,7 @@
     <string name="sign_out">Sign out</string>
     <string name="sign_up">Sign up</string>
     <string name="or">------------or-----------</string>
+    <string name="et_name">Enter your name</string>
+    <string name="register">Register</string>
+    <string name="et_password">Enter Password</string>
 </resources>

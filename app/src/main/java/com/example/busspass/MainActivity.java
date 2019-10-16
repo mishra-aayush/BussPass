@@ -25,7 +25,7 @@ import com.google.firebase.auth.GoogleAuthProvider;
 public class MainActivity extends AppCompatActivity {
     static final int GOOGLE_SIGN_IN = 123;
     FirebaseAuth mAuth;
-    Button btn_login, btn_logout;
+    Button btn_login, btn_logout,signin,signup;
     TextView text;
     ProgressBar progressBar;
     GoogleSignInClient mGoogleSignInClient;
@@ -36,10 +36,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btn_login = findViewById(R.id.loginG);
         btn_logout = findViewById(R.id.logout);
+        signin=findViewById(R.id.sign_in);
+        signup=findViewById(R.id.sign_up);
         text = findViewById(R.id.text);
         forgotPassword=findViewById(R.id.forgot_password);
         progressBar = findViewById(R.id.progress_circular);
         mAuth = FirebaseAuth.getInstance();
+        signin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            }
+        });
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,SignUp.class));
+            }
+        });
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()

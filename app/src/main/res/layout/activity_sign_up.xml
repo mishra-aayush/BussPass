@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp">
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/et_name"
+        android:ems="10"
+        android:id="@+id/et_name"
+        android:layout_marginTop="250dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/et_email"
+        android:ems="10"
+        android:id="@+id/e_email"
+        android:layout_below="@id/et_name"
+        android:layout_centerHorizontal="true"
+        />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:id="@+id/et_pass"
+        android:layout_below="@id/e_email"
+        android:hint="@string/et_password"
+        />
+    <Button
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:id="@+id/register_btn"
+        android:text="@string/register"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/et_pass"
+        />
+
+
+
+</RelativeLayout>
