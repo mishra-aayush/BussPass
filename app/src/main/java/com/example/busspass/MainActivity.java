@@ -27,12 +27,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class MainActivity extends AppCompatActivity {
-    static final int GOOGLE_SIGN_IN = 123;
-    FirebaseAuth mAuth;
-    public ProgressBar progressBar;
-    Button btn_login, btn_logout;
-    TextView text;
-    ImageView image;
+
 
     GoogleSignInClient mGoogleSignInClient;
     @Override
