@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,75 +28,12 @@ public class MainActivity extends AppCompatActivity {
     Button btn_login, btn_logout;
     TextView text;
     ImageView image;
-    //ProgressBar progressBar;
+    ProgressBar progressBar;
     GoogleSignInClient mGoogleSignInClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btn_login = findViewById(R.id.loginG);
-        text = findViewById(R.id.text);
-        mAuth = FirebaseAuth.getInstance();
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
-                .requestEmail()
-                .build();
-        mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        btn_login.setOnClickListener(v -> SignInGoogle());
-        if (mAuth.getCurrentUser() != null) {
-            FirebaseUser user = mAuth.getCurrentUser();
-            updateUI(user);
         }
-
-
-
-    }
-
-    private void updateUI(FirebaseUser user) {
-    }
-
-    private void SignInGoogle() {
-        Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-        startActivityForResult(signInIntent, GOOGLE_SIGN_IN);
-
-    }
-    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        Log.d("TAG", "firebaseAuthWithGoogle:" + acct.getId());
-
-        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, task -> {
-                    if (task.isSuccessful()) {
-                        progressBar.setVisibility(View.INVISIBLE);
-
-                        Log.d("TAG", "signInWithCredential:success");
-
-                        FirebaseUser user = mAuth.getCurrentUser();
-                        updateUI(user);
-                    } else {
-                        progressBar.setVisibility(View.INVISIBLE);
-
-                        Log.w("TAG", "signInWithCredential:failure", task.getException());
-
-                        Toast.makeText(MainActivity.this, "Authentication failed.",
-                                Toast.LENGTH_SHORT).show();
-                        updateUI(null);
-                    }
-                });
-        @Override
-        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-            super.onActivityResult(requestCode, resultCode, data);
-
-            if (requestCode == GOOGLE_SIGN_IN) {
-                Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
-                try {
-                    GoogleSignInAccount account = task.getResult(ApiException.class);
-                    if (account != null) firebaseAuthWithGoogle(account);
-                } catch (ApiException e) {
-                    Log.w("TAG", "Google sign in failed", e);
-                }
-            }
-        }
-    }
     }

@@ -26,7 +26,7 @@ public class SignUp extends AppCompatActivity {
         userName=findViewById(R.id.e_email);
         userPassword=findViewById(R.id.et_pass);
         userEmail=findViewById(R.id.et_name);
-        FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
+        final FirebaseAuth firebaseAuth=FirebaseAuth.getInstance();
 
         regbtn=findViewById(R.id.register_btn);
         regbtn.setOnClickListener(new View.OnClickListener() {
