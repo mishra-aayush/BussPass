@@ -146,6 +146,8 @@ void Logout(){
     FirebaseAuth.getInstance().signOut();
     mGoogleSignInClient.signOut()
             .addOnCompleteListener(this,task ->updateUI(null));
+
+    //sfsadsfsagit
 }
 
 }
