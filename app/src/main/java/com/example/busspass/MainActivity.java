@@ -29,13 +29,15 @@ public class MainActivity extends AppCompatActivity {
     TextView text;
     ProgressBar progressBar;
     GoogleSignInClient mGoogleSignInClient;
+    TextView forgotPassword;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btn_login = findViewById(R.id.loginG);
         btn_logout = findViewById(R.id.logout);
         text = findViewById(R.id.text);
+        forgotPassword=findViewById(R.id.forgot_password);
         progressBar = findViewById(R.id.progress_circular);
         mAuth = FirebaseAuth.getInstance();
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -49,6 +51,13 @@ public class MainActivity extends AppCompatActivity {
             FirebaseUser user= mAuth.getCurrentUser();
             updateUI(user);
         }
+
+        forgotPassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this,ForgotPassword.class));
+            }
+        });
 
     }
     void SignInGoogle(){
@@ -107,6 +116,7 @@ private void updateUI(FirebaseUser user){
         text.append("Info:\n");
         text.append(name+"\n");
         text.append(email);
+        progressBar.setVisibility(View.INVISIBLE);
         btn_login.setVisibility(View.INVISIBLE);
         btn_logout.setVisibility(View.VISIBLE);
     }else{

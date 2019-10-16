@@ -3,5 +3,14 @@
     <string name="buss_pass">BUSS PASS</string>
     <string name="login_with_google">LOGIN WITH GOOGLE</string>
     <string name="login">Login</string>
+    <string name="email">Email</string>
     <string name="logout">LogOut</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign in</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="et_email">Enter Your Email</string>
+    <string name="sign_out">Sign out</string>
+    <string name="sign_up">Sign up</string>
+    <string name="or">------------or-----------</string>
 </resources>
