@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:accessibilityPaneTitle="Buy Bus Pass"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".AfterBuy">
+
+
+    <TextView
+        android:layout_marginTop="20sp"
+        android:layout_marginLeft="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-black"
+        android:text="Buy Bus Pass"
+        android:textSize="40sp"
+        />
+    <TextView
+        android:layout_marginTop="50sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Specify Quantity"
+        android:textSize="40sp"
+        android:fontFamily="cursive"
+
+        android:layout_gravity="center"
+
+        />
+
+    <LinearLayout
+        android:layout_marginTop="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        >
+        <Button
+            android:layout_width="50sp"
+            android:layout_height="wrap_content"
+            android:text="-"
+            android:id="@+id/minus"
+            android:onClick="doMinus"
+            android:lineHeight="@android:dimen/thumbnail_height"
+            android:background="@android:color/background_light"
+            android:textSize="25sp"
+            ></Button>
+        <TextView
+            android:layout_width="40sp"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:id="@+id/quantity"
+            android:textSize="25dp"
+            android:gravity="center"
+            />
+        <Button
+            android:layout_width="50sp"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/plus"
+            android:onClick="doPlus"
+            android:background="@android:color/background_light"
+            android:textSize="25sp"
+
+            />
+
+    </LinearLayout>
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Max Quantity: 10"
+        android:textSize="20sp"
+        android:layout_marginBottom="60sp"
+        android:textColor="@android:color/holo_red_light"
+
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="20dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="Total "
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:id="@+id/total_pass"
+            android:text="1"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text=" Bus Pass"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_margin="20dp"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="Total Price : Rs "
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:id="@+id/total_price"
+            android:text="25"
+            />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="0dp"
+            android:background="@android:color/holo_blue_bright"
+            android:gravity="center"
+            android:id="@+id/proceed_to_pay"
+            android:text="Proceed To Pay"
+            android:onClick="proceedTOPay"
+            android:textColor="@android:color/background_light"
+            android:textSize="30sp" />
+    </RelativeLayout>
+</LinearLayout>

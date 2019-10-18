@@ -154,10 +154,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
             text.setText(getString(R.string.login));
             btn_login.setVisibility(View.INVISIBLE);
-
         }
-
-
     }
     void Logout(){
         FirebaseAuth.getInstance().signOut();
