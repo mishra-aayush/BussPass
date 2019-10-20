@@ -1,6 +1,8 @@
 package com.example.busspass;
 
 import android.content.Intent;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,8 +18,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
@@ -60,8 +64,18 @@ public class MainActivity extends AppCompatActivity {
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
-        btn_login.setOnClickListener(v->SignInGoogle());
-        btn_logout.setOnClickListener(v->Logout());
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.SignInGoogle();
+            }
+        });
+        btn_logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.this.Logout();
+            }
+        });
         if(mAuth.getCurrentUser()!=null){
             FirebaseUser user= mAuth.getCurrentUser();
             updateUI(user);
@@ -101,20 +115,23 @@ public class MainActivity extends AppCompatActivity {
         Log.d("TAG","fireBaseAuthWithGoogle"+ account.getId());
         AuthCredential credential=GoogleAuthProvider.getCredential(account.getIdToken(),null);
         mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, task-> {
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             progressBar.setVisibility(View.INVISIBLE);
                             Log.d("Tag", "Signin success");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI(user);
+                            MainActivity.this.updateUI(user);
                         } else {
                             progressBar.setVisibility(View.INVISIBLE);
-                            Log.w("Tag","sign in failure",task.getException());
-                            Toast.makeText(this, "SignInFailed", Toast.LENGTH_SHORT).show();
-                            updateUI(null);
+                            Log.w("Tag", "sign in failure", task.getException());
+                            Toast.makeText(MainActivity.this, "SignInFailed", Toast.LENGTH_SHORT).show();
+                            MainActivity.this.updateUI(null);
                         }
 
 
+                    }
                 });
     }
 
@@ -124,30 +141,32 @@ public class MainActivity extends AppCompatActivity {
             updateUI(user);
         }*/
 
-private void updateUI(FirebaseUser user){
-    if(user!=null ){
-        String name=user.getDisplayName();
-        String email= user.getEmail();
-        text.append("Info:\n");
-        text.append(name+"\n");
-        text.append(email);
-        progressBar.setVisibility(View.INVISIBLE);
-        btn_login.setVisibility(View.INVISIBLE);
-        btn_logout.setVisibility(View.VISIBLE);
-    }else{
-        text.setText(getString(R.string.login));
-        btn_login.setVisibility(View.INVISIBLE);
-
+    private void updateUI(FirebaseUser user){
+        if(user!=null ){
+            String name=user.getDisplayName();
+            String email= user.getEmail();
+            text.append("Info:\n");
+            text.append(name+"\n");
+            text.append(email);
+            progressBar.setVisibility(View.INVISIBLE);
+            btn_login.setVisibility(View.INVISIBLE);
+            btn_logout.setVisibility(View.VISIBLE);
+        }else{
+            text.setText(getString(R.string.login));
+            btn_login.setVisibility(View.INVISIBLE);
         }
-
-
     }
-void Logout(){
-    FirebaseAuth.getInstance().signOut();
-    mGoogleSignInClient.signOut()
-            .addOnCompleteListener(this,task ->updateUI(null));
+    void Logout(){
+        FirebaseAuth.getInstance().signOut();
+        mGoogleSignInClient.signOut()
+                .addOnCompleteListener(this, new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        MainActivity.this.updateUI(null);
+                    }
+                });
 
-    //sfsadsfsagit
-}
+        //sfsadsfsagit
+    }
 
 }
