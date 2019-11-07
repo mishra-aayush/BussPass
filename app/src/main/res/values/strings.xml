@@ -15,5 +15,6 @@
     <string name="or">------------or-----------</string>
     <string name="et_name">Enter your name</string>
     <string name="register">Register</string>
+    <string name="auth_failed">Authentication failed</string>
     <string name="et_password">Enter Password</string>
 </resources>
