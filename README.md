@@ -56,7 +56,7 @@ Download the apk file and explore!
    
   Time Table displayed in a pdf format
   
-  <img src="timetable.jpg" alt="The Ticket Activity" width="250"/>
+  <img src="timeTable.jpg" alt="The Ticket Activity" width="250"/>
  
 8. **Route Selection Activity**
 
