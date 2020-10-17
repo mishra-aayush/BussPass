@@ -35,7 +35,7 @@ Download the apk file and explore!
 
   The features mentioned in the main acctivity can be accessed from here as well along with a couple of addtional features such as the time table and logout.
   
-  <img src="sidebar.jpg" alt="Sidebar Navigation Drawer" width="250"/>
+  <img src="sidebarNav.jpg" alt="Sidebar Navigation" width="250"/>
   
   
 5. **Ticket Activity**
@@ -56,7 +56,7 @@ Download the apk file and explore!
    
   Time Table displayed in a pdf format
   
-  <img src="timeTable.jpg" alt="The Ticket Activity" width="250"/>
+  <img src="timeTablePDF.jpg" alt="The Time Table Activity" width="250"/>
  
 8. **Route Selection Activity**
 
