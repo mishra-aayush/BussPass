@@ -72,4 +72,5 @@ Download the apk file and explore!
   <img src="alarmAndNotificationScreen.jpg" alt="The Alarm and Notification Activity" width="250"/>
   
   
-## Contributors - Abhay Aravinda [Email](17ucs002@lnmiit.ac.in), Lovee Hingorani [Email](17ucs083@lnmiit.ac.in), Mohit Jindal [Email](17ucs091@lnmiit.ac.in), Ashish Kumar [Email](17ucs038@lnmiit.ac.in)
+## Contributors - Abhay Aravinda [Email - <17ucs002@lnmiit.ac.in>], Lovee Hingorani [Email - <17ucs083@lnmiit.ac.in>], Mohit Jindal [Email - <17ucs091@lnmiit.ac.in>], Ashish Kumar [Email - <17ucs038@lnmiit.ac.in>]
+
